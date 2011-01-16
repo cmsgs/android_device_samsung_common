@@ -1,4 +1,5 @@
 # When zero we link against libqcamera; when 1, we dlopen libqcamera.
+ifeq ($(BOARD_USES_NEXUS_S_LIBS),true)
 ifeq ($(BOARD_CAMERA_LIBRARIES),libcamera)
 
 DLOPEN_LIBSECCAMERA:=1
@@ -55,4 +56,5 @@ LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)
 
+endif
 endif
