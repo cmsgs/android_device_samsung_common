@@ -20,6 +20,11 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
+ifdef BOARD_V4L2_DEVICE
+    LOCAL_CFLAGS += -DV4L2_DEVICE=\"$(BOARD_V4L2_DEVICE)\"
+endif
+
+
 LOCAL_C_INCLUDES:= \
       $(LOCAL_PATH)/../include
 
