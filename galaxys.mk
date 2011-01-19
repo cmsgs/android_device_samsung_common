@@ -53,9 +53,14 @@ PRODUCT_PACKAGES += \
 
 # Libs
 PRODUCT_PACKAGES += \
+    libaudio \
+    liboverlay \
+    libs3cjpeg \
+    libstagefrighthw \
+    sec_mm \
     libcamera \
     libstagefrighthw
 
 
-$(call inherit-product, build/target/product/full.mk)
+$(call inherit-product, build/target/product/full_base.mk)
 
