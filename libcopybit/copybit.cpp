@@ -43,7 +43,7 @@
 #include <sys/mman.h>
 #include <pthread.h>
 
-#include <hardware/copybit.h>
+#include "hardware/copybit.h"
 #include <linux/android_pmem.h>
 # include <asm/page.h>
 
