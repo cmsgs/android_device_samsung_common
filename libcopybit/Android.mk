@@ -30,6 +30,7 @@ LOCAL_C_INCLUDES := \
 LOCAL_SRC_FILES := copybit.cpp
 
 LOCAL_MODULE := copybit.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
 endif
