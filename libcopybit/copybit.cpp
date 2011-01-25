@@ -705,7 +705,7 @@ static int get_src_phys_addr(struct copybit_context_t *ctx, s3c_img *src_img, s3
 						__func__, s5p_fimc->params.src.buf_addr_phy_rgb_y, s5p_fimc->params.src.buf_addr_phy_cb);
 				return 0;
 			}
-			break;
+			break; 
 
 		case COPYBIT_FORMAT_CUSTOM_YCbCr_422_I:
 		case COPYBIT_FORMAT_CUSTOM_CbYCrY_422_I:
@@ -764,7 +764,7 @@ static int get_src_phys_addr(struct copybit_context_t *ctx, s3c_img *src_img, s3
 	}
 	
 	return src_phys_addr;
-}
+} 
 
 static int get_dst_phys_addr(struct copybit_context_t *ctx, s3c_img *dst_img, s3c_rect *dst_rect, int *dst_memcpy_flag)
 {
@@ -1295,15 +1295,15 @@ static int doPP(struct copybit_context_t *ctx,
 	// set input dma address (Y/RGB, Cb, Cr)
 	switch (src_img->format) 
 	{
-/*	case COPYBIT_FORMAT_CUSTOM_YCbCr_420_SP:
-	case COPYBIT_FORMAT_CUSTOM_YCrCb_420_SP:
+//	case COPYBIT_FORMAT_CUSTOM_YCbCr_420_SP:
+//	case COPYBIT_FORMAT_CUSTOM_YCrCb_420_SP:
 		// for video contents zero copy case
-		fimc_src_buf.base[0]	= params->src.buf_addr_phy_rgb_y;
-		fimc_src_buf.base[1]	= params->src.buf_addr_phy_cb; 
-		break; */
+	//	fimc_src_buf.base[0]	= params->src.buf_addr_phy_rgb_y;
+	//	fimc_src_buf.base[1]	= params->src.buf_addr_phy_cb; 
+		//break;
 
-/*	case COPYBIT_FORMAT_CUSTOM_YCbCr_422_I:
-	case COPYBIT_FORMAT_CUSTOM_CbYCrY_422_I:*/
+//	case COPYBIT_FORMAT_CUSTOM_YCbCr_422_I:
+	// case COPYBIT_FORMAT_CUSTOM_CbYCrY_422_I:
 	case COPYBIT_FORMAT_RGB_565:
 		// for camera capture zero copy case
 		fimc_src_buf.base[0]	= params->src.buf_addr_phy_rgb_y;
@@ -1670,10 +1670,10 @@ static inline int colorFormatCopybit2PP(int format)
 		case COPYBIT_FORMAT_CbYCrY_422_I: 			return V4L2_PIX_FMT_UYVY;
 
 		// customed format
-/*		case COPYBIT_FORMAT_CUSTOM_CbYCrY_422_I:	return V4L2_PIX_FMT_UYVY; //Kamat
-		case COPYBIT_FORMAT_CUSTOM_YCbCr_422_I:		return V4L2_PIX_FMT_YUYV;
-		case COPYBIT_FORMAT_CUSTOM_YCbCr_420_SP: 	return V4L2_PIX_FMT_NV12T;
-		case COPYBIT_FORMAT_CUSTOM_YCrCb_420_SP: 	return V4L2_PIX_FMT_NV21; //Kamat */
+//		case COPYBIT_FORMAT_CUSTOM_CbYCrY_422_I:	return V4L2_PIX_FMT_UYVY; //Kamat
+//		case COPYBIT_FORMAT_CUSTOM_YCbCr_422_I:		return V4L2_PIX_FMT_YUYV;
+//		case COPYBIT_FORMAT_CUSTOM_YCbCr_420_SP: 	return V4L2_PIX_FMT_NV12T;
+//		case COPYBIT_FORMAT_CUSTOM_YCrCb_420_SP: 	return V4L2_PIX_FMT_NV21; //Kamat
 
 		// unsupported format by fimc
 		case COPYBIT_FORMAT_RGB_888:
@@ -1781,8 +1781,8 @@ static inline unsigned int getFrameSize(int colorformat, int width, int height)
 
 		case COPYBIT_FORMAT_YCbCr_420_SP: 
 		case COPYBIT_FORMAT_YCrCb_420_SP: 
-/*		case COPYBIT_FORMAT_CUSTOM_YCbCr_420_SP: 
-		case COPYBIT_FORMAT_CUSTOM_YCrCb_420_SP: //Kamat (30-3-2010) */
+	//	case COPYBIT_FORMAT_CUSTOM_YCbCr_420_SP: 
+	//	case COPYBIT_FORMAT_CUSTOM_YCrCb_420_SP: //Kamat (30-3-2010)
 		case COPYBIT_FORMAT_YCbCr_420_P: 
 			//frame_size = width * height * 3 / 2;
 			frame_size = size + (2 * ( size / 4));
